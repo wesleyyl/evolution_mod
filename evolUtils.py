@@ -163,6 +163,8 @@ class Evolver(object, metaclass=PostInitCaller):
 
                 # Then pick a product from the reactants that are left
                 product1 = species[random.randint(0, len(species) - 1)]
+                #Removes Autocatalysis - WESLEY
+                species = np.delete(species, [product1], axis=0)
                 product2 = species[random.randint(0, len(species) - 1)]
             reaction.reactant1 = reactant1
             reaction.product1 = product1
@@ -186,6 +188,8 @@ class Evolver(object, metaclass=PostInitCaller):
                 # if we allow autocatalyis, then we can pick any products, the only risk being that they are the same
                 # as the reactants so the reaction is irrelevant
                 product1 = random.randint(0, nSpecies - 1)
+                #Removes Autocatalysis - WESLEY
+                species = np.delete(species, [product1], axis=0)
                 product2 = random.randint(0, nSpecies - 1)
             reaction.reactant1 = reactant1
             reaction.reactant2 = reactant2
