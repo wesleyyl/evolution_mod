@@ -1,4 +1,4 @@
-{"maxGenerations": 800,
+{"maxGenerations": 400,
   "sizeOfPopulation": 40,
   "allowAutocatalysis": "False",
   "massConserved": "False",

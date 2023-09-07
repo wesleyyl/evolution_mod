@@ -43,7 +43,7 @@ if platform == "win32":
 elif platform == "linux":
     PLATFORM_SHARED_LIBRARY_EXTENSION = "so"
     distribution = id()
-    if distribution in ["centos", "rocky", "fedora"]:
+    if distribution in ["centos", "rocky"]:
         PLATFORM_SHARED_LIBRARY_PREFIX = "lib"
         SUNDIALS_LIB_DIR = join(SUNDIALS_INSTALL_PREFIX, "lib64")
     else:

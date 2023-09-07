@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import isMassConserved
 import damped_analysis as da
-from oscillatorDB import mongoMethods as mm
+#from oscillatorDB import mongoMethods as mm
 import antimony_ev2 as aModel
 from shutil import rmtree
 
@@ -45,7 +45,10 @@ def countReactions(astr):
                 uni_bi += 1
                 # Separate products (reactants is already just one item
                 products = products.split('+')
-                if reactants in products:
+                # if reactants in products:
+                if (reactants == products[0] == products[1]):
+                    autocatalysis += 1
+                elif (products[0] == products[1]):
                     autocatalysis += 1
             elif rxnType == 'bi-uni':
                 bi_uni += 1
@@ -60,6 +63,7 @@ def countReactions(astr):
                 # Separate products and reactants
                 reactants = reactants.split('+')
                 products = products.split('+')
+                print(f"reactants[0] = {reactants[0]}; reactants[1] = {reactants[1]}; products[0] = {products[0]}; products[1] = {products[1]}")
                 if (reactants[0] == products[0] and reactants[0] == products[1]) or \
                         (reactants[1] == products[0] and reactants[1] == products[1]):
                     autocatalysis += 1

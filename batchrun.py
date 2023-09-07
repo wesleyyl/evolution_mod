@@ -28,6 +28,7 @@ def parseProbabilities(probabilities):
 
 def runEvolution(args):
     command = 'python ./evolve.py'
+    #command = 'python /home/wesleyluk/oscillator/evolution/evolution/evolve.py'
     if args.newConfigFile:
         command += f' --newConfigFile {args.newConfigFile}'
     if args.numGenerations:
