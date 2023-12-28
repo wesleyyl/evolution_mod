@@ -23,6 +23,7 @@ def runCvodeSimulation(model, timeEnd, numberOfPoints, initialConditions):
         y0[i] = initialConditions[i]
 
     neq = model.numFloats + model.numBoundary
+    print("")
     model.cvode.initialize(neq, y0)
 
     m = model.cvode.simulate(0, timeEnd, numberOfPoints)
